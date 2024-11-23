@@ -2,6 +2,11 @@ import React from 'react';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 
+const resetForm = () => {
+  const form = document.querySelector('form');
+  form.reset();
+}
+
 const SignupForm = () => {
   return (
     <Formik
@@ -20,6 +25,7 @@ const SignupForm = () => {
       onSubmit={(values, { setSubmitting }) => {
         setTimeout(() => {
           alert(JSON.stringify(values, null, 2));
+          resetForm();
           setSubmitting(false);
         }, 400);
       }}
